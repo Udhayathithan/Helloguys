@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+</head>
+
+<style>
+*
+{
+    margin:0px;
+    padding:0px;
+}
+.chatlist
+{
+    background:#111B21;
+    width:400px;
+    padding:0 15px;
+    height:580px;
+    overflow:scroll;
+}
+
+.cover
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fi:cover;
+}
+.imgbx
+{
+    position:relative;
+    width:50px;
+    height:50px;
+    overflow:hidden;
+    border-radius:50%;
+    cursor:pointer;
+    margin-left:20px;
+}
+.chatlist .block .details .listhead
+{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:5px;
+}
+.Card {
+    background-color:#202C33;
+    border-radius:5px;
+    padding:10px;
+    margin-top:10px;
+    color
+}
+.listhead a
+{
+    color:white;
+    font-size:20px;
+    padding:0 10px;
+    text-decoration:none;
+}
+.about a
+{
+    color:grey;
+    font-size:18px;
+    margin-left:-40px;
+        padding:0 10px;
+
+}
+.blck {
+    padding:50px;
+
+}
+</style>
+
+<body>
+<div class="chatlist">
+
+                    <div class="blck">
+                        {% for row1 in data1 %}
+                          <div class="Card">
+                          <table>
+                              <tr>
+                                  <td>
+                                    <div class="imgbx">
+                                        <img alt="" src="static/uploads/{{ row1[0] }}" class="cover">
+                                    </div>
+                                  </td>
+                                  <td>
+                                      <div class="details">
+                                        <div class="listhead">
+                                            <a href="/content?uname={{ row1[1] }}">{{ row1[1] }}</a>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </div>
+                                        <div class="about">
+                                            <a>{{ row1[3] }}</a>
+                                        </div>
+
+                                      </div>
+                                  </td>
+                              </tr>
+                          </table>
+                          </div>
+
+                {% endfor %}
+
+                    </div>
+
+        </div>
+
+
+</body>
+</html>

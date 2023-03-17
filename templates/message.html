@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Guys</title>
+</head>
+<style>
+ body
+{
+    background:#222E35;
+}
+
+.p1
+{
+    color:white;
+    background:#00A884;
+    padding:10px 20px;
+    border-radius:20px;
+    font-size:20px;
+    margin:10px;
+
+        float:right;
+
+}
+.p2
+{
+    color:white;
+    background:#A00884;
+    padding:10px 20px;
+    border-radius:20px;
+    font-size:20px;
+    margin:10px;
+            float:left;
+
+
+}
+.msg {
+    background:#ddffdd;
+    padding:50px;
+    width:100%;
+    height:520px;
+    overflow:scroll;
+}
+.chatbox_input
+{
+    position:relative;
+    width:100%;
+    height:60px;
+    background:#202C33;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.chatbox_input input
+{
+    position:relative;
+    width:90%;
+    margin:0 20px;
+    padding:10px 20px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    font-size:1em;
+    background:#2A3942;
+    color:white;
+}
+.chatbox_input ion-icon
+{
+    color:#7C8B95;
+    font-size:30px;
+    padding-right:30px;
+    cursor:pointer;
+}
+
+</style>
+
+<body>
+<div>
+    {% include "header.html" %}
+</div>
+<div class="students">
+      <table>
+          <tr>
+
+              <th  width="25%">
+                  {% include "menu.html" %}
+              </th>
+              <th  width="75%" bgcolor="white">
+                  <div class="msg">
+                  {% for row in data %}
+                    <div>
+
+                        {% if row[1] == session["un"] and row[2] == session["un2"] %}
+                        <span class="p1">{{row[3]}} {{row[1]}} {{row[2]}}</span> <br><br><br><br>
+                        {% endif %}
+
+                        {% if row[1] == session["un2"] and row[2] == session["un"] %}
+                        <span class="p2">{{row[3]}} {{row[1]}} {{row[2]}} </span> <br><br><br><br>
+                        {% endif %}
+                    </div>
+                  {% endfor %}
+                  </div>
+                  <form name="form" action="/messagesave" method="post">
+                        <div class="chatbox_input">
+
+                            <input type="text" placeholder="Type a message" name="message">
+                            <input type="submit" name="send"></input>
+                        </div>
+                  </form>
+              </th>
+          </tr>
+
+      </table>
+
+  </div>
+
+
+</body>
+</html>

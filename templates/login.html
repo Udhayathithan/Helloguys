@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LogIn</title>
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111B21;
+  font-family: sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  perspective: 900px;
+}
+
+hr {
+  margin: 1rem 0;
+  background: #222E35;
+}
+
+h1 {
+  margin-bottom: .35rem;
+  background: linear-gradient(45deg, blue, violet);
+  animation: animate 1.5s ease infinite alternate;
+  background-size: 150% 150%;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@keyframes animate {
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+
+}
+
+p {
+  color: hsl(100 0% 60%);
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: 0.75s ease-in-out;
+  background: #222E35;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: -5px 10px 30px 5px black;
+}
+
+.back {
+  transform: rotatex(180deg)
+}
+
+.container.active .front {
+  transform: rotatex(-180deg);
+}
+
+.container.active .back {
+  transform: rotatex(0deg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  margin: .38rem 0 1rem 0;
+
+  padding:10px;
+    background:transparent;
+    border-radius:50px;
+    color:white;
+}
+
+.bt {
+  font-family: sans-serif;
+  background: #007bff;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  padding: 0.5rem;
+  display: block;
+  width: 100%;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: .5rem;
+  text-decoration:none;
+  text-align:center;
+}
+
+.bt:active {
+  transform: scale(0.97);
+}
+
+.switch {
+  font-size: .9rem;
+  text-align:center;
+  color:green;
+}
+.uname
+{
+    color:white;
+}
+.pw
+{
+    color:white;
+}
+.img
+{
+    cursor:pointer;
+    padding:10px;
+    background:transparent;
+
+    color:white;
+}
+.flash
+{
+    color:#721c24;
+    background:#f8d7da;
+    border-color:#f5c6cb;
+    margin-top:-550px;
+    text-align:center;
+    padding:5px;
+    margin-right:-280px;
+
+}
+</style>
+<body>
+{% with msg = get_flashed_messages() %}
+    {% if msg %}
+        {% for m in msg %}
+            <div class="flash">{{m}}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<div class="container">
+    <form action="/accountsave" method="post" enctype="multipart/form-data">
+<div class="back card">
+
+      <h1>Welcome</h1>
+      <p>Register now</p>
+      <hr>
+      <div class="form-group">
+        <label class="uname">Profile</label>
+        <input type="file" accept="image/*" class="img" name="file" autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <label class="uname">Username</label>
+        <input type="text" id="uname" placeholder="Enter username" name="Name" class="input" required>
+      </div>
+      <div class="form-group">
+        <label class="pw">Phone Number</label>
+        <input type="number" id="email" placeholder="Enter PhoneNumber" name="Phone" class="input" required>
+      </div>
+
+      <div class="form-group">
+        <label class="pw">About</label>
+        <input type="text" class="input" placeholder="About" name="des" required>
+      </div>
+      <input type="submit" class="bt" value="Register">
+      <a href="#" class="switch">Already registerd? Click here.</a>
+</div>
+</form>
+
+<form action="/login" method="post" enctype="multipart/form-data">
+    <div class="front card">
+      <h1>Welcome</h1>
+      <p>Login now</p>
+      <hr>
+
+      <div class="form-group">
+        <label class="uname">Username</label>
+        <input type="text" id="uname" name="Name" placeholder="Enter username" class="input" required>
+      </div>
+
+      <div class="form-group">
+        <label class="pw">Phone Number</label>
+        <input type="password" id="email" name="Phone" placeholder="Enter PhoneNumber" class="input" required>
+      </div>
+      <input type="submit" class="bt" value="Login">
+      <a href="#" class="switch">Not registerd? Click here.</a>
+  </div>
+</form>
+</div>
+
+
+
+
+<script>
+    const switchEle = document.querySelectorAll('.switch');
+const containerEle = document.querySelector('.container');
+
+switchEle.forEach(se => {
+  se.addEventListener('click', ()=>{
+    containerEle.classList.toggle('active')
+  })
+})
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

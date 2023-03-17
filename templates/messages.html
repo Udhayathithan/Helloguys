@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <script src="https://kit.fontawesome.com/0f34f888d6.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#009588;
+}
+
+.header
+{
+    position:relative;
+    width:1396px;
+    max-width:100%;
+    height:calc(106vh - 40px);
+    background:white;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.06),0 2px 5px 0 rgba(0,0,0,0.06);
+    display:flex;
+}
+
+.header .leftside
+{
+    position:relative;
+    flex:30%;
+    background:#111B21;
+        border-right:1px solid rgba(0,0,0,0.2);
+
+}
+
+.header .rightside
+{
+    position:relative;
+    flex:70%;
+    background:#0B141A;
+}
+
+.header .rightside::before
+{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url("static/spid.png");
+    opacity:0.06;
+}
+
+.header01
+{
+    position:relative;
+    width:100%;
+    height:60px;
+    background:#202C33;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 15px;
+}
+
+.logo
+{
+    position:relative;
+    width:40px;
+    height:40px;
+    overflow:hidden;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.cover
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fi:cover;
+}
+
+.navicons
+{
+
+}
+.navicons a
+{
+    margin-left:-320px;
+    color:white;
+    font-size:25px;
+}
+.navicons p
+{
+    margin-left:-320px;
+    color:grey;
+    font-size:20px;
+}
+
+
+.navicons li
+{
+    display:flex;
+    list-style:none;
+    cursor:pointer;
+    color:grey;
+    font-size:1.5em;
+    margin-left:22px;
+    -webkit-transition: all.25s ease;
+            -moz-transition: all.25s ease;
+            -ms-transition: all.25s ease;
+            -o-transition: all.25s ease;
+            transition: all.25s ease;
+}
+.navicons li:hover
+{
+    color:white;
+}
+
+.search_chat
+{
+    position:relative;
+    width:100%;
+    height:50px;
+    background:#111B21;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 15px;
+
+}
+
+.search_chat div
+{
+    width:100%;
+}
+
+.search_chat div input
+{
+    width:90%;
+    outline:none;
+    background:#202C33;
+    padding:6px;
+    height:38px;
+    border-radius:10px;
+    font-size:14px;
+    padding-left:40px;
+    border:none;
+      color:white;
+}
+
+.search_chat div ion-icon
+{
+    position:absolute;
+    left:30px;
+    top:14px;
+    font-size:1.2em;
+    cursor:pointer;
+    color:grey;
+    -webkit-transition: all.25s ease;
+            -moz-transition: all.25s ease;
+            -ms-transition: all.25s ease;
+            -o-transition: all.25s ease;
+            transition: all.25s ease;
+}
+.search_chat div ion-icon:hover
+{
+    color:white;
+
+}
+.search_chat a
+{
+     position:absolute;
+   left:370px;
+    top:15px;
+    font-size:1.2em;
+    color:grey;
+    cursor:pointer;
+    -webkit-transition: all.25s ease;
+            -moz-transition: all.25s ease;
+            -ms-transition: all.25s ease;
+            -o-transition: all.25s ease;
+            transition: all.25s ease;
+}
+.search_chat a:hover
+{
+    color:white;
+}
+
+.chatlist
+{
+    position:relative;
+    height: calc(100% - 110px);  /* 60 + 50 =110*/
+    overflow-y:auto;
+    background:#111B21;
+    font-family:arial;
+
+}
+
+.chatlist .block
+{
+    position:relative;
+    width:100%;
+    display:flex;
+    align-items:center;
+    padding:15px;
+    border-bottom:1px solid #222E35;
+    flex-wrap:wrap;
+}
+
+.chatlist .block.active
+{
+    background:#2A3942;
+}
+
+
+.chatlist .block .imgbx
+{
+    position:relative;
+    min-width:45px;
+    height:45px;
+    overflow:hidden;
+    border-radius:50%;
+    cursor:pointer;
+    margin-right:10px;
+}
+
+.chatlist .block .details
+{
+
+    width:100%;
+    color:white;
+
+
+
+}
+.chatlist .block .details .listhead
+{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:5px;
+}
+.chatlist .block .details .listhead a
+{
+    font-size:1.1em;
+    font-weight:600;
+    color:white;
+    text-decoration:none;
+}
+.chatlist .block .details .listhead .edit
+{
+    font-size:0.75em;
+    color:#8696A0;
+}
+.chatlist .block .details .listhead .edit
+{
+    color:black;
+}
+.add
+{
+    color:red;
+    text-decoration:none;
+    font-family:arial;
+    font-size:17px;
+    padding:150px;
+    font-weight:;
+}
+
+.edt
+{
+    color:blue;
+    text-decoration:none;
+    margin-right:px;
+    padding-left:10px;
+
+}
+.del
+{
+    color:green;
+    text-decoration:none;
+     padding-left:10px;
+
+}
+.about
+{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.about a
+{
+    color:#8696A0;
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    font-size:0.9em;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    text-decoration:none;
+}
+
+/*chat box*/
+.chatbox
+{
+    position:relative;
+    width:100%;
+    height:90%; /* 60+60=120px */
+    padding:50px;
+    overflow-y:auto;
+}
+.message
+{
+    position:relative;
+    display:flex;
+    width:100%;
+    margin:5px 0;
+}
+.message p
+{
+    position:relative;
+    right:0;
+    text-align:right;
+    max-width:65%;
+    padding:12px;
+    background:#005C4B;
+    border-radius:10px;
+    font-size:0.9em;
+}
+.message p:before
+{
+    content:'';
+    position:absolute;
+    top:0;
+    right:-12px;
+    width:20px;
+    height:20px;
+    background:linear-gradient(135deg,#005C4B 0%,#005C4B 50%,transparent 50%,transparent);
+
+}
+.my_message
+{
+    justify-content:flex-end;
+    color:white;
+    font-family:arial;
+}
+.friend_message
+{
+        justify-content:flex-start;
+
+}
+.friend_message p
+{
+    background:#202C33;
+    text-align:left;
+        color:white;
+    font-family:arial;
+}
+.message.friend_message p:before
+{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-12px;
+    width:20px;
+    height:20px;
+    background:linear-gradient(225deg,#202C33 0%,#202C33 50%,transparent 50%,transparent);
+}
+.chatbox_input
+{
+    position:relative;
+    width:100%;
+    height:60px;
+    background:#202C33;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.chatbox_input input
+{
+    position:relative;
+    width:90%;
+    margin:0 20px;
+    padding:10px 20px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    font-size:1em;
+    background:#2A3942;
+    color:white;
+}
+.chatbox_input ion-icon
+{
+    color:#7C8B95;
+    font-size:30px;
+    padding-right:30px;
+    cursor:pointer;
+}
+table {
+    padding-bottom:17px;
+
+}
+</style>
+
+<body>
+<div class="header">
+  <div class="leftside">
+    <!--header01-->
+
+
+      <!--chat list-->
+      <form action="/messages" method="post">
+        <div class="chatlist">
+
+            <div class="block">
+                {% for row in data %}
+
+                  <table>
+                      <tr>
+                          <td>
+                            <div class="imgbx">
+                                <img alt="" src="static/uploads/{{ row[0] }}" class="cover">
+                            </div>
+                          </td>
+                          <td>
+                              <div class="details">
+                                <div class="listhead">
+                                    <a>{{ row[2] }}</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </div>
+                                <div class="about">
+                                    <a>EEE</a>
+                                </div>
+
+                              </div>
+                          </td>
+                      </tr>
+                  </table>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+</form>
+  </div>
+
+       <div class="rightside">
+           <div class="chatbox">
+              <div class="message my_message">
+                 <p>Hi</p>
+              </div>
+                  <div class="message friend_message">
+                       <p>Hello</p>
+                  </div>
+                      <div class="message my_message">
+                          <p>How are you?</p>
+                      </div>
+                        <div class="message friend_message">
+                           <p>Fine</p>
+                         </div>
+
+           </div>
+         <!--chat input-->
+        <div class="chatbox_input">
+            <input type="text" placeholder="Type a message">
+            <ion-icon name="send"></ion-icon>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

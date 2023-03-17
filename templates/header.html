@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <script src="https://kit.fontawesome.com/0f34f888d6.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+
+
+
+
+
+.header01
+{
+    position:relative;
+    width:100%;
+    height:60px;
+    background:#202C33;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 15px;
+}
+
+.logo
+{
+    position:relative;
+    width:40px;
+    height:40px;
+    overflow:hidden;
+    border-radius:50%;
+    cursor:pointer;
+    margin-left:20px;
+}
+
+.cover
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fi:cover;
+}
+
+.navicons
+{
+
+}
+.navicons a
+{
+
+    color:white;
+    font-size:25px;
+}
+.navicons p
+{
+
+    color:grey;
+    font-size:20px;
+}
+
+
+.navicons li
+{
+    display:flex;
+    list-style:none;
+    cursor:pointer;
+    color:grey;
+    font-size:1.5em;
+    margin-left:22px;
+    -webkit-transition: all.25s ease;
+            -moz-transition: all.25s ease;
+            -ms-transition: all.25s ease;
+            -o-transition: all.25s ease;
+            transition: all.25s ease;
+}
+.navicons li:hover
+{
+    color:white;
+}
+font
+{
+    margin-left:500px;
+
+}
+
+</style>
+
+<body>
+
+
+    <!--header01-->
+      <div class="header01">
+          <table>
+              <tr>
+                  <td>
+                      <div class="logo">
+                <img alt="" src='static/uploads/{{ session["img"] }}' class="cover">
+
+            </div>
+                  </td>
+                  <td></td>
+                  <td></td>
+
+                  <td>
+                      <ul class="navicons">
+                    <a>{{ session["un"] }}</a><br>
+                <p>{{ session["des"] }}</p>
+
+            </ul>
+                  </td>
+                  <td width="100">
+
+                  </td>
+                  <td>
+                      <h1><font color="#AEBAC1">Hello Guys!</font></h1>
+                  </td>
+              </tr>
+          </table>
+
+
+      </div>
+
+      <!--chat list-->
+
+
+
+
+<!--chat input-->
+
+
+
+
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
